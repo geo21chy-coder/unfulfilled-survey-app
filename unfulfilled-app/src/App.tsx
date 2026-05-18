@@ -99,7 +99,7 @@ function App() {
   const [facilities] = useState<Facility[]>(initialData);
   const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isListMinimized, setIsListMinimized] = useState(false);
+  const [isListMinimized, setIsListMinimized] = useState(() => window.innerWidth < 768);
   const markerRefs = useRef<{ [key: number]: L.Marker }>({});
 
   const initialCenter = GWANGSAN_OFFICE_CENTER;
@@ -124,7 +124,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen w-full font-sans bg-gray-50 text-gray-900 overflow-hidden">
       {/* Header */}
-      <header className="bg-white shadow-sm z-10 px-5 py-4 flex items-center justify-between border-b border-gray-200">
+      <header className={`bg-white shadow-sm z-10 px-5 py-4 items-center justify-between border-b border-gray-200 ${!isListMinimized ? 'hidden md:flex' : 'flex'}`}>
         <div className="flex items-center gap-3">
           <div className="p-2 bg-red-600 rounded-lg shadow-md shadow-red-200">
             <MapPin className="text-white" size={20} />
