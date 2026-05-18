@@ -273,13 +273,15 @@ function App() {
         {/* List Area */}
         <aside className={`md:h-full md:w-96 md:max-w-md bg-white border-t md:border-t-0 md:border-l border-gray-200 flex flex-col z-10 shadow-2xl md:shadow-none transition-all duration-300 ${isListMinimized ? 'flex-none' : 'flex-1 h-2/5'} overflow-hidden`}>
           <div className="p-4 bg-white border-b border-gray-100 shrink-0 flex flex-col gap-3">
-             <div className="flex justify-between items-center">
+             <div 
+               className="flex justify-between items-center cursor-pointer md:cursor-default"
+               onClick={() => setIsListMinimized(!isListMinimized)}
+             >
                <h2 className="text-sm font-black text-gray-800 flex items-center gap-2">
                  <Search size={16} className="text-blue-500" />
                  미이행 시설 검색
                </h2>
                <button 
-                 onClick={() => setIsListMinimized(!isListMinimized)}
                  className="md:hidden p-1.5 bg-gray-50 text-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
                  aria-label={isListMinimized ? "검색창 확대" : "검색창 최소화"}
                >
