@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Car, BatteryCharging, MapPin, MessageSquare, Search } from 'lucide-react';
+import { Car, BatteryCharging, MapPin, MessageSquare, Search, ChevronDown, ChevronUp } from 'lucide-react';
 import unfulfilledData from './data/unfulfilled_data.json';
 
 // Types
@@ -99,9 +99,18 @@ function App() {
   const [facilities] = useState<Facility[]>(initialData);
   const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isListMinimized, setIsListMinimized] = useState(false);
   const markerRefs = useRef<{ [key: number]: L.Marker }>({});
 
   const initialCenter = GWANGSAN_OFFICE_CENTER;
+
+  useEffect(() => {
+    // Trigger map resize when list is minimized/expanded to ensure map renders correctly
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 300); // match transition duration
+    return () => clearTimeout(timer);
+  }, [isListMinimized]);
 
   const handleFacilityClick = (facility: Facility) => {
     setSelectedFacility(facility);
@@ -250,13 +259,22 @@ function App() {
         </main>
 
         {/* List Area */}
-        <aside className="flex-1 h-2/5 md:h-full md:w-96 md:max-w-md bg-white border-t md:border-t-0 md:border-l border-gray-200 flex flex-col z-10 shadow-2xl md:shadow-none overflow-hidden">
+        <aside className={`md:h-full md:w-96 md:max-w-md bg-white border-t md:border-t-0 md:border-l border-gray-200 flex flex-col z-10 shadow-2xl md:shadow-none transition-all duration-300 ${isListMinimized ? 'flex-none' : 'flex-1 h-2/5'} overflow-hidden`}>
           <div className="p-4 bg-white border-b border-gray-100 shrink-0 flex flex-col gap-3">
-             <h2 className="text-sm font-black text-gray-800 flex items-center gap-2">
-               <Search size={16} className="text-blue-500" />
-               미이행 시설 검색
-             </h2>
-             <div className="relative">
+             <div className="flex justify-between items-center">
+               <h2 className="text-sm font-black text-gray-800 flex items-center gap-2">
+                 <Search size={16} className="text-blue-500" />
+                 미이행 시설 검색
+               </h2>
+               <button 
+                 onClick={() => setIsListMinimized(!isListMinimized)}
+                 className="md:hidden p-1.5 bg-gray-50 text-gray-600 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
+                 aria-label={isListMinimized ? "검색창 확대" : "검색창 최소화"}
+               >
+                 {isListMinimized ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+               </button>
+             </div>
+             <div className={`relative md:block ${isListMinimized ? 'hidden' : 'block'}`}>
                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                <input 
                  type="text" 
@@ -267,7 +285,7 @@ function App() {
                />
              </div>
           </div>
-          <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gray-50/50">
+          <div className={`flex-1 overflow-y-auto p-3 space-y-3 bg-gray-50/50 md:block ${isListMinimized ? 'hidden' : 'block'}`}>
             {filteredFacilities.map(facility => {
               const isSelected = selectedFacility?.id === facility.id;
               
