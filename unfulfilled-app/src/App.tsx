@@ -114,6 +114,9 @@ function App() {
 
   const handleFacilityClick = (facility: Facility) => {
     setSelectedFacility(facility);
+    if (window.innerWidth < 768) {
+      setIsListMinimized(true);
+    }
   };
 
   const filteredFacilities = facilities.filter(f => 
@@ -124,7 +127,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen w-full font-sans bg-gray-50 text-gray-900 overflow-hidden">
       {/* Header */}
-      <header className={`bg-white shadow-sm z-10 px-5 py-4 items-center justify-between border-b border-gray-200 ${!isListMinimized ? 'hidden md:flex' : 'flex'}`}>
+      <header className={`bg-white shadow-sm z-10 px-5 py-4 items-center justify-between border-b border-gray-200 ${(!isListMinimized || selectedFacility) ? 'hidden md:flex' : 'flex'}`}>
         <div className="flex items-center gap-3">
           <div className="p-2 bg-red-600 rounded-lg shadow-md shadow-red-200">
             <MapPin className="text-white" size={20} />
@@ -167,7 +170,13 @@ function App() {
                     }
                   }}
                 >
-                  <Popup className="custom-popup" autoPan={true}>
+                  <Popup 
+                    className="custom-popup" 
+                    autoPan={true}
+                    onClose={() => {
+                      setSelectedFacility(prev => prev?.id === facility.id ? null : prev);
+                    }}
+                  >
                     <div className="p-3 min-w-[240px]">
                       <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
                         <span className="text-[10px] font-black text-gray-500 bg-gray-100 px-2 py-1 rounded-md">ID: {facility.id}</span>
