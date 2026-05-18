@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Info, Car, BatteryCharging, MapPin, MessageSquare, Search } from 'lucide-react';
+import { Car, BatteryCharging, MapPin, MessageSquare, Search } from 'lucide-react';
 import unfulfilledData from './data/unfulfilled_data.json';
 
 // Types
@@ -35,7 +35,6 @@ interface Facility {
 // Initial Data parsing
 const initialData = unfulfilledData as Facility[];
 const GWANGSAN_OFFICE_CENTER: [number, number] = [35.139647, 126.793644]; // 광산구청 좌표
-const firstValid = initialData.find(f => f.lat && f.lng) || null;
 
 // Custom Icons
 const createCustomIcon = (category: string) => {
