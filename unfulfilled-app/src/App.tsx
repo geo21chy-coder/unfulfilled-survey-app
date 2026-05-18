@@ -105,12 +105,12 @@ function App() {
   const initialCenter = GWANGSAN_OFFICE_CENTER;
 
   useEffect(() => {
-    // Trigger map resize when list is minimized/expanded to ensure map renders correctly
+    // Trigger map resize when list is minimized/expanded or facility selection changes
     const timer = setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 300); // match transition duration
     return () => clearTimeout(timer);
-  }, [isListMinimized]);
+  }, [isListMinimized, selectedFacility]);
 
   const handleFacilityClick = (facility: Facility) => {
     setSelectedFacility(facility);
@@ -167,15 +167,18 @@ function App() {
                   eventHandlers={{
                     click: () => {
                       setSelectedFacility(facility);
+                      if (window.innerWidth < 768) {
+                        setIsListMinimized(true);
+                      }
+                    },
+                    popupclose: () => {
+                      setSelectedFacility(prev => prev?.id === facility.id ? null : prev);
                     }
                   }}
                 >
                   <Popup 
                     className="custom-popup" 
                     autoPan={true}
-                    onClose={() => {
-                      setSelectedFacility(prev => prev?.id === facility.id ? null : prev);
-                    }}
                   >
                     <div className="p-3 min-w-[240px]">
                       <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
