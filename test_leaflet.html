@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>#map { height: 600px; width: 800px; }</style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([35.139647, 126.793644], 13);
+        L.tileLayer('https://xdworld.vworld.kr/2d/Base/service/{z}/{x}/{y}.png').addTo(map);
+        L.marker([35.139647, 126.793644]).addTo(map).bindPopup('Gwangsan-gu Office').openPopup();
+    </script>
+</body>
+</html>

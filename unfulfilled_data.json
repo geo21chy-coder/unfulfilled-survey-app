@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 1,
+    "name": "신창동 마한유적 체험관",
+    "address": "광주 광산구 신창동 1073-5",
+    "remarks": "급속 2대",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1934895495458,
+    "lng": 126.850463244666
+  },
+  {
+    "id": 2,
+    "name": "광주공항 ",
+    "address": "광주 광산구 신촌동 698-9",
+    "remarks": "1대아님 2대 설치되어있음.",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.139951212583,
+    "lng": 126.810774908487
+  },
+  {
+    "id": 4,
+    "name": "광주교육시민협치 진흥원",
+    "address": "광주 광산구 신창동 999-9",
+    "remarks": "(26.2.2.)유선확인,주차면 1개 더 늘려보겠음",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1944584121919,
+    "lng": 126.84159955919
+  },
+  {
+    "id": 7,
+    "name": "광주연구원(한국자동차연구원,클린디젤기반시설)",
+    "address": "광주 광산구 오선동 573",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1946964276389,
+    "lng": 126.789034725424
+  },
+  {
+    "id": 11,
+    "name": "옥동 차량기지",
+    "address": "광주 광산구 옥동 125-26",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1208175489218,
+    "lng": 126.761527090012
+  },
+  {
+    "id": 14,
+    "name": "평동화물차고지",
+    "address": "광주 광산구 연산동 1123",
+    "remarks": "화물차고지가 분리되어있지만, 같은 부지내에 소유자가 같다면 화물차대수도 포함해서 산정해야함",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1154292996909,
+    "lng": 126.762772496345
+  },
+  {
+    "id": 19,
+    "name": "친환경자동차 부품클러스터",
+    "address": "광주 광산구 삼거동 668",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1685681575853,
+    "lng": 126.676205435184
+  },
+  {
+    "id": 20,
+    "name": "광주친환경자동차인증센터(친환경자동차부품인증센터)",
+    "address": "광주 광산구 삼거동 660",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1687183463188,
+    "lng": 126.677870795089
+  },
+  {
+    "id": 22,
+    "name": "광주송정역 주차타워",
+    "address": "광주 광산구 송정동 1003-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1375979846938,
+    "lng": 126.790945992613
+  },
+  {
+    "id": 23,
+    "name": "농업기술센터",
+    "address": "광주 광산구 용곡동 418",
+    "remarks": "현황은 115라고 하시나, 대장은 110면",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1288634645672,
+    "lng": 126.743812945936
+  },
+  {
+    "id": 24,
+    "name": "진곡화물차고지",
+    "address": "광주 광산구 하남동 837",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1946364521573,
+    "lng": 126.794252967905
+  },
+  {
+    "id": 25,
+    "name": "광주국토관리사무소",
+    "address": "광주 광산구 쌍암동 684-2",
+    "remarks": "주차면수는 안되어있음",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2184608740796,
+    "lng": 126.849957576403
+  },
+  {
+    "id": 32,
+    "name": "신창 브뤼몰타운",
+    "address": "광주 광산구 신창동 1219",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1909703309015,
+    "lng": 126.837432877524
+  },
+  {
+    "id": 33,
+    "name": "신창주차타워",
+    "address": "광주 광산구 신창동 1222-4",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.191401307577,
+    "lng": 126.838743352818
+  },
+  {
+    "id": 34,
+    "name": "하남H타워",
+    "address": "광주 광산구 하남동 811",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1792598943817,
+    "lng": 126.806444255962
+  },
+  {
+    "id": 37,
+    "name": "남부대학교",
+    "address": "광주 광산구 월계동 864-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2073997236426,
+    "lng": 126.841365881076
+  },
+  {
+    "id": 39,
+    "name": "한듬레포츠센터",
+    "address": "광주 광산구 수완동 136-6",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1993126439785,
+    "lng": 126.834783013291
+  },
+  {
+    "id": 42,
+    "name": "명성골프장",
+    "address": "광주 광산구 비아동 723-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2238199384767,
+    "lng": 126.835194477299
+  },
+  {
+    "id": 43,
+    "name": "일진스포렉스",
+    "address": "광주 광산구 도천동 122-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2138290932234,
+    "lng": 126.824224798845
+  },
+  {
+    "id": 47,
+    "name": "수완동 올핀스빌딩",
+    "address": "광주 광산구 수완동 669-1",
+    "remarks": "현재 상가분쟁으로 미설치",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.204930502121,
+    "lng": 126.819443302387
+  },
+  {
+    "id": 48,
+    "name": "수영빌딩",
+    "address": "광주 광산구 장덕동 1302",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.19118695852,
+    "lng": 126.819448788431
+  },
+  {
+    "id": 50,
+    "name": "성덕주차타워",
+    "address": "광주 광산구 수완동 1412",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1904433834811,
+    "lng": 126.823265585855
+  },
+  {
+    "id": 52,
+    "name": "씨네파크(키넥스9시네마)",
+    "address": "광주 광산구 쌍암동 694-35",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2164097365237,
+    "lng": 126.850666039766
+  },
+  {
+    "id": 53,
+    "name": "콜롬버스월드",
+    "address": "광주 광산구 우산동 1587-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.162942407489,
+    "lng": 126.811961205176
+  },
+  {
+    "id": 64,
+    "name": "㈜케이원레저개발(수완PGA골프)",
+    "address": "광주 광산구 수완동 268-3",
+    "remarks": "의무설치인지 몰랐음, 공문 놓고 가면 계획 세우겠음",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2079330708483,
+    "lng": 126.830857222217
+  },
+  {
+    "id": 65,
+    "name": "주차장",
+    "address": "광주 광산구 장덕동 1623",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1896371209857,
+    "lng": 126.815054959042
+  },
+  {
+    "id": 67,
+    "name": "첨단중해마루힐 주차타워",
+    "address": "광주 광산구 쌍암동 686-3",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2202846736617,
+    "lng": 126.850182793341
+  },
+  {
+    "id": 68,
+    "name": "첨단 젊은주차장(아이파킹주차장)",
+    "address": "광주 광산구 월계동 876-1",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2161732268409,
+    "lng": 126.844231593243
+  },
+  {
+    "id": 70,
+    "name": "월계동주차빌딩(첨단sky주차타워)",
+    "address": "광주 광산구 월계동 885-1",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2151484196465,
+    "lng": 126.846369770534
+  },
+  {
+    "id": 72,
+    "name": "애플타워주차장",
+    "address": "광주 광산구 수완동 1475",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1893537292302,
+    "lng": 126.824065068523
+  },
+  {
+    "id": 75,
+    "name": "폭스존(메가박스 첨단 건물)",
+    "address": "광주 광산구 쌍암동 688-4",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2215326011543,
+    "lng": 126.85239146838
+  },
+  {
+    "id": 80,
+    "name": "세계로 365병원",
+    "address": "광주 광산구 장덕동 1300",
+    "remarks": "기계식90대제외",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1912403252033,
+    "lng": 126.818548537293
+  },
+  {
+    "id": 81,
+    "name": "남궁빌딩",
+    "address": "광주 광산구 수완동 1080",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1910764947097,
+    "lng": 126.824381199043
+  },
+  {
+    "id": 82,
+    "name": "국선빌딩",
+    "address": "광주 광산구 수완동 1424",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1903839954838,
+    "lng": 126.82432647259
+  },
+  {
+    "id": 84,
+    "name": "무등산랜드",
+    "address": "광주 광산구 우산동 1581-3",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1623179399933,
+    "lng": 126.806800949352
+  },
+  {
+    "id": 87,
+    "name": "애플타워",
+    "address": "광주 광산구 월계동 881-1",
+    "remarks": "등기우편반송",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2160977933702,
+    "lng": 126.848285000401
+  },
+  {
+    "id": 98,
+    "name": "광주열린병원",
+    "address": "광주 광산구 송정동 570-15",
+    "remarks": "우편발송(1.20.)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1381092373383,
+    "lng": 126.798882494775
+  },
+  {
+    "id": 99,
+    "name": "대한상공회의소 광주인력개발원",
+    "address": "광주 광산구 소촌동 235",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1585158999773,
+    "lng": 126.79600938096
+  },
+  {
+    "id": 107,
+    "name": "농협은행 광주영업본부",
+    "address": "광주 광산구 우산동 1588-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1618590880103,
+    "lng": 126.81156944201
+  },
+  {
+    "id": 121,
+    "name": "천지연금사우나",
+    "address": "광주 광산구 운남동 783-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1759301450184,
+    "lng": 126.813535716003
+  },
+  {
+    "id": 122,
+    "name": "cgv 주차타워",
+    "address": "광주 광산구 쌍암동 694-43",
+    "remarks": "('26.3.25.)통화완료(현재 업체랑 위치 조율중, 설치예정)/사정상 이행현황 팩스로 보내기가 어려움",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2159834532809,
+    "lng": 126.85071097314
+  },
+  {
+    "id": 130,
+    "name": "(주)구시월드",
+    "address": "광주 광산구 선암동 578",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1474943645014,
+    "lng": 126.776886337631
+  },
+  {
+    "id": 131,
+    "name": "골드타워",
+    "address": "광주 광산구 쌍암동 671-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2187189054395,
+    "lng": 126.846699910348
+  },
+  {
+    "id": 132,
+    "name": "가람식자재마트",
+    "address": "광주 광산구 수완동 801-6",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2057659742146,
+    "lng": 126.820115849443
+  },
+  {
+    "id": 134,
+    "name": "하남365장어구이",
+    "address": "광주 광산구 흑석동 669",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1832826566181,
+    "lng": 126.800236726245
+  },
+  {
+    "id": 136,
+    "name": "광주문화체육센터",
+    "address": "광주 광산구 신촌동 869-1",
+    "remarks": "기쁜소식선교회에서 운영",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1488385392077,
+    "lng": 126.807799641257
+  },
+  {
+    "id": 137,
+    "name": "겨자씨교회",
+    "address": "광주 광산구 쌍암동 695-2",
+    "remarks": "주차장부지라 자동차시설임",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.214806567967,
+    "lng": 126.853149506499
+  },
+  {
+    "id": 138,
+    "name": "예성주차장",
+    "address": "광주 광산구 월곡동 679-13",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1793388396329,
+    "lng": 126.810367606213
+  },
+  {
+    "id": 140,
+    "name": "만평장례식장",
+    "address": "광주 광산구 우산동 621-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1634804219166,
+    "lng": 126.819785762164
+  },
+  {
+    "id": 141,
+    "name": "드메르웨딩홀",
+    "address": "광주 광산구 도천동 147-29",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2080331503099,
+    "lng": 126.821766631361
+  },
+  {
+    "id": 144,
+    "name": "문화실업(골프존파크장덕K 등)",
+    "address": "광주 광산구 장덕동 505-86",
+    "remarks": "등기우편반송/3개건물소유주같음",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2025869922788,
+    "lng": 126.811925655964
+  },
+  {
+    "id": 145,
+    "name": "동국상운 4층(산단 내 주차타워, GG사우나)",
+    "address": "광주 광산구 장덕동 992-8",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.188572513982,
+    "lng": 126.809003466889
+  },
+  {
+    "id": 148,
+    "name": "수완 한국아델리움 더숲",
+    "address": "광주 광산구 하남동 506-3",
+    "remarks": "등기우편 한국건설 주소까지 보내달라고함",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1869950118875,
+    "lng": 126.801521117019
+  },
+  {
+    "id": 164,
+    "name": "광주자동화설비마이스터고등학교",
+    "address": "광주 광산구 우산동 1084",
+    "remarks": "추가설치 2기 안내",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1500208455988,
+    "lng": 126.814092198318
+  },
+  {
+    "id": 165,
+    "name": "전자공업고등학교",
+    "address": "광주 광산구 월계동 864-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.204856045971,
+    "lng": 126.84076814963
+  },
+  {
+    "id": 170,
+    "name": "산정초등학교",
+    "address": "광주 광산구 산정동 1116",
+    "remarks": "건물별로 관리자가 교육청으로 다 동일하고, 한부지내에 있으므로 53면 그대로 산정해서 의무시설임",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1722276382534,
+    "lng": 126.800956001569
+  },
+  {
+    "id": 171,
+    "name": "월곡초등학교",
+    "address": "광주 광산구 월곡동 588",
+    "remarks": "건축물대장 주차면수 기재가 안되어있어서 도면확인요청함(서부교육지원청 600-9789)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1667519497148,
+    "lng": 126.814858495686
+  },
+  {
+    "id": 175,
+    "name": "광주선광학교",
+    "address": "광주 광산구 신가동 303",
+    "remarks": "학교 부지는 그대로지만, '26년도 말에 부시고 다시 지을 예정임(2년후에 준공예정임), 2동인데 1동으로 합쳤다가 /일단 증빙자료 메일로 주시기로 함",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1818375235835,
+    "lng": 126.836418742535
+  },
+  {
+    "id": 176,
+    "name": "스카이장례식장",
+    "address": "광주 광산구 수완동 213-6",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2052398313158,
+    "lng": 126.834311201204
+  },
+  {
+    "id": 177,
+    "name": "빛장례식장",
+    "address": "광주 광산구 송정동 1364",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.140071330175,
+    "lng": 126.792631491005
+  },
+  {
+    "id": 178,
+    "name": "베스트장례문화원",
+    "address": "광주 광산구 우산동 220-14",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1437876914515,
+    "lng": 126.821969019618
+  },
+  {
+    "id": 179,
+    "name": "첨단금호타운",
+    "address": "광주 광산구 월계동 756-5",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2212693806989,
+    "lng": 126.835916776188
+  },
+  {
+    "id": 180,
+    "name": "무진로더브이벨라코트",
+    "address": "광주 광산구 우산동 1607-1",
+    "remarks": "다른경우 건축물대장 수정하라고 안내",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1613541672818,
+    "lng": 126.804081207612
+  },
+  {
+    "id": 185,
+    "name": "수완아름마을3단지",
+    "address": "광주 광산구 신가동 1202",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1803936906005,
+    "lng": 126.820478944492
+  },
+  {
+    "id": 199,
+    "name": "첨단 3-3차 호반리젠시빌",
+    "address": "광주 광산구 산월동 884-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.210100866011,
+    "lng": 126.850409071475
+  },
+  {
+    "id": 214,
+    "name": "성덕마을새한포유",
+    "address": "광주 광산구 장덕동 1689",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1874518969294,
+    "lng": 126.814712961374
+  },
+  {
+    "id": 215,
+    "name": "신창5차 호반베르디움",
+    "address": "광주 광산구 신창동 1111",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1976289284711,
+    "lng": 126.835320637274
+  },
+  {
+    "id": 230,
+    "name": "쌍암힐스테이트리버파크",
+    "address": "광주 광산구 쌍암동 695-1",
+    "remarks": "오피스텔제외하면 1437면",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2166886301251,
+    "lng": 126.854154168135
+  },
+  {
+    "id": 258,
+    "name": "희망타운2단지",
+    "address": "광주 광산구 운수동 541",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1496851748029,
+    "lng": 126.786575398943
+  },
+  {
+    "id": 274,
+    "name": "비아호반",
+    "address": "광주 광산구 비아동 152-5",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2231000684111,
+    "lng": 126.823890442342
+  },
+  {
+    "id": 295,
+    "name": "선운리버프라임",
+    "address": "광주 광산구 선암동 553",
+    "remarks": "('26.1.16.) '25.12.보조금신청완료/'26년 상반기 설치예정",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1505790095083,
+    "lng": 126.776894160116
+  },
+  {
+    "id": 325,
+    "name": "도시공사",
+    "address": "광주 광산구 신창동 1268",
+    "remarks": "광주도시공사관리시설 /('26.1.27.) 유선상 주차면수 5%이상 안내완료 / '26.1월중 설치완료예정",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1953280398639,
+    "lng": 126.834062417682
+  },
+  {
+    "id": 330,
+    "name": "신촌 대주",
+    "address": "광주 광산구 신촌동 826-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 37.1944580226415,
+    "lng": 127.304003294008
+  },
+  {
+    "id": 341,
+    "name": "하남2 도시공사(다사로움 1차)",
+    "address": "광주 광산구 산정동 1023",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1754178966261,
+    "lng": 126.798448475901
+  },
+  {
+    "id": 344,
+    "name": "수완휴먼시아 4단지",
+    "address": "광주 광산구 흑석동 517",
+    "remarks": "주택과-10079 ('26.3.16.)호로 통보 / ('26.3.17.)유선통화 주차구역도 확보 완료 ",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1840279811007,
+    "lng": 126.810786210466
+  },
+  {
+    "id": 345,
+    "name": "수완휴먼시아 6단지",
+    "address": "광주 광산구 장덕동 1044",
+    "remarks": "26.2월중 공사예정 / LH관리시설임(면수5%)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2004743810488,
+    "lng": 126.811794908936
+  },
+  {
+    "id": 346,
+    "name": "수완휴먼시아 7단지",
+    "address": "광주 광산구 장덕동 1037",
+    "remarks": "설치업체 선정해 공사진행중 / LH관리시설(5%안내완료,1.26.통화)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2019549136579,
+    "lng": 126.811429328505
+  },
+  {
+    "id": 353,
+    "name": "아름마을휴먼시아 2단지",
+    "address": "광주 광산구 신가동 1064",
+    "remarks": "('26.2.9.유선확인 임용주), 설치완료함",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1850639739912,
+    "lng": 126.823301057666
+  },
+  {
+    "id": 354,
+    "name": "수완1차 중흥",
+    "address": "광주 광산구 신가동 1306",
+    "remarks": "지상에다 주차장 만들어서 추가설치할 예정이었으나, 통경구간으로 허가가 안나서 다시 재진행해야함. 그래도 시정명령 기한내에는 진행하겠음(1.21.유선통화 및 이행계획 제출)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1800441839555,
+    "lng": 126.816296831001
+  },
+  {
+    "id": 362,
+    "name": "수완 대방3차",
+    "address": "광주 광산구 장덕동 1693",
+    "remarks": "('26.2.9.)유선확인-임용주, 입주민갈등으로 추가 설치 불가한 상황임",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1879089244758,
+    "lng": 126.817112034288
+  },
+  {
+    "id": 364,
+    "name": "수완 호반베르디움 2차",
+    "address": "광주 광산구 장덕동 1043",
+    "remarks": "('26.1.16.) 완속충전기보조사업 신청중 / 상가랑 구분은 되어있지만, 그냥 아파트에서 수치 맞춰서 다 일괄로 하실예정임",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2003628311206,
+    "lng": 126.813099395891
+  },
+  {
+    "id": 367,
+    "name": "수완 대방6차",
+    "address": "광주 광산구 수완동 926",
+    "remarks": "입주민합의 후 지상에 설치예정",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1997233486504,
+    "lng": 126.824564310584
+  },
+  {
+    "id": 371,
+    "name": "선운지구 휴먼시아",
+    "address": "광주 광산구 선암동 540",
+    "remarks": "('26.2.9.유선확인 임용주) LH관리시설, 상반기 중 설치예정",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.1476857885272,
+    "lng": 126.779235029606
+  },
+  {
+    "id": 382,
+    "name": "우산동 동부센트레빌",
+    "address": "광주 광산구 우산동 1588-1",
+    "remarks": "('26.2.9.유선확인 임용주), 올해 계약종료 후 내년에 지상부지에 설치예정",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1618870480423,
+    "lng": 126.810886782398
+  },
+  {
+    "id": 385,
+    "name": "힐스테이트첨단",
+    "address": "광주 광산구 쌍암동 654-2",
+    "remarks": "총 760면 중에 공동주택 478면 / 상가는 282면",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2212213455505,
+    "lng": 126.842020544632
+  },
+  {
+    "id": 403,
+    "name": "호반청암빌라트",
+    "address": "광주 광산구 도산동 840-1",
+    "remarks": "26년 상반기 내로 설치가능/건축물대장상 1대라고 안내함(1.26.유선)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1311187695768,
+    "lng": 126.792227934383
+  },
+  {
+    "id": 407,
+    "name": "송정라인1차",
+    "address": "광주 광산구 송정동 425-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.137374677574,
+    "lng": 126.80319502427
+  },
+  {
+    "id": 409,
+    "name": "금호훼밀리파크",
+    "address": "광주 광산구 소촌동 46-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.154562395828,
+    "lng": 126.802835478209
+  },
+  {
+    "id": 416,
+    "name": "장미(유리)",
+    "address": "광주 광산구 우산동 1050-2",
+    "remarks": "현장확인 필요",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1552491921654,
+    "lng": 126.808486970072
+  },
+  {
+    "id": 426,
+    "name": "삼라",
+    "address": "광주 광산구 도산동 1298-3",
+    "remarks": "('26.2.9.)유선확인-장혜란,지하에밖에 설치가 안돼서 입주자대표회의에서 반대중임",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1292773108509,
+    "lng": 126.789266005939
+  },
+  {
+    "id": 438,
+    "name": "첨단 LH3단지(행복주택)",
+    "address": "광주 광산구 월계동 869-2",
+    "remarks": "26.2월중 설치예정(공공임대 5%맞는지확인)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2171987429965,
+    "lng": 126.846814030517
+  },
+  {
+    "id": 439,
+    "name": "첨단 LH2단지(행복주택)",
+    "address": "광주 광산구 쌍암동 683-2",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2182344847842,
+    "lng": 126.848317819438
+  },
+  {
+    "id": 441,
+    "name": "첨단 LH1단지(행복주택)",
+    "address": "광주 광산구 쌍암동 657-4",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2182673463264,
+    "lng": 126.842569295524
+  },
+  {
+    "id": 442,
+    "name": "송정매일시장 주차타워",
+    "address": "광주 광산구 송정동 792-8",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.140437272869,
+    "lng": 126.794956526476
+  },
+  {
+    "id": 443,
+    "name": "비아5일시장 주차타워",
+    "address": "광주 광산구 비아동 67-3",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 35.2214335519661,
+    "lng": 126.825750554318
+  },
+  {
+    "id": 444,
+    "name": "1913송정역시장 주차타워",
+    "address": "광주 광산구 송정동 857-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": false,
+    "lat": 37.5564369455645,
+    "lng": 126.812309774954
+  },
+  {
+    "id": 449,
+    "name": "광산CC 주차장",
+    "address": "광주 광산구 연산동 1111",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1068396396447,
+    "lng": 126.741808823782
+  },
+  {
+    "id": 450,
+    "name": "수완문화체육센터",
+    "address": "광주 광산구 수완동 918",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": 35.2002590175467,
+    "lng": 126.825246733801
+  },
+  {
+    "id": 451,
+    "name": "서봉파크골프장",
+    "address": "광주 광산구 서봉동 205-6",
+    "remarks": "하천구역 내 시설 설치 면제(市조례 제9조의2)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1506990627983,
+    "lng": 126.75823606066
+  },
+  {
+    "id": 462,
+    "name": "노상주차장",
+    "address": "광주 광산구 우산동1035-1~1038-4",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "id": 463,
+    "name": "노상주차장",
+    "address": "광주 광산구 우산동1603-1~1602-2",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "id": 464,
+    "name": "노상주차장(하남주공2차)",
+    "address": "광주 광산구 우산동 1571-1",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": 35.1663171496993,
+    "lng": 126.803870190698
+  },
+  {
+    "id": 465,
+    "name": "노상주차장",
+    "address": "광주 광산구 월곡동538-1~산정동 949-1",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": 35.1682992471483,
+    "lng": 126.807758801023
+  },
+  {
+    "id": 467,
+    "name": "차고지(광산구생활환경종합센터)",
+    "address": "광주 광산구 월전동 920 ",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1206664436337,
+    "lng": 126.760046852996
+  },
+  {
+    "id": 468,
+    "name": "쌍암근린공원 주차장",
+    "address": "광주 광산구 쌍암동 653-1 ",
+    "remarks": "",
+    "parking_unfulfilled": false,
+    "charger_unfulfilled": true,
+    "lat": 35.2233764195229,
+    "lng": 126.843926198377
+  },
+  {
+    "id": 469,
+    "name": "하신공원 주차장 1",
+    "address": "광주 광산구 장덕동 1009 등",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1880207340663,
+    "lng": 126.807088071055
+  },
+  {
+    "id": 470,
+    "name": "하신공원 주차장 2",
+    "address": "광주 광산구 하남동 521 등",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1879635366432,
+    "lng": 126.801423460183
+  },
+  {
+    "id": 471,
+    "name": "하신공원 주차장 3",
+    "address": "광주 광산구 하남동 519 등",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1879367326413,
+    "lng": 126.797053040758
+  },
+  {
+    "id": 472,
+    "name": "안청공원",
+    "address": "광주 광산구 안청동 736-1",
+    "remarks": "",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.2123681197186,
+    "lng": 126.803487017908
+  },
+  {
+    "id": 473,
+    "name": "운남주공1단지",
+    "address": "광주 광산구 운남동 776-1",
+    "remarks": "운남주공2단지랑 주소동일, 1단지는 LH관리, 주차면수 131면(LH 통보한면수, 관리규약 확인필요)",
+    "parking_unfulfilled": true,
+    "charger_unfulfilled": true,
+    "lat": 35.1782230725287,
+    "lng": 126.827632695311
+  }
+]

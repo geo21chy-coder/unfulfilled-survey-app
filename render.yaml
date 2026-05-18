@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: unfulfilled-app
+    env: static
+    rootDir: unfulfilled-app
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
