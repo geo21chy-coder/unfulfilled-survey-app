@@ -50,7 +50,8 @@ const createCustomIcon = (category: string, zoom: number) => {
   else if (category === '공동주택') color = '#3b82f6'; // blue
   else if (category === '공공시설(광산구)') color = '#22c55e'; // green
 
-  const scale = Math.max(0.5, Math.min(2.5, 1 + (zoom - 13) * 0.2));
+  // 마커 기본 크기 축소 (기본 1.0 -> 0.75)
+  const scale = Math.max(0.4, Math.min(2.5, 0.75 + (zoom - 13) * 0.15));
   const width = 40 * scale;
   const height = 50 * scale;
 
@@ -112,13 +113,159 @@ function MapController({ facility, markerRefs, setMapZoom }: { facility: Facilit
   return null;
 }
 
+function ZoomablePopupContent({ facility }: { facility: Facility }) {
+  const [scale, setScale] = useState(1);
+  const initialDist = useRef<number | null>(null);
+  const initialScale = useRef<number>(1);
+
+  const handlePinchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && window.innerWidth < 768) {
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      initialDist.current = dist;
+      initialScale.current = scale;
+    }
+  };
+
+  const handlePinchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && initialDist.current !== null && window.innerWidth < 768) {
+      e.stopPropagation();
+      const currentDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = initialScale.current * (currentDist / initialDist.current);
+      setScale(Math.max(0.6, Math.min(newScale, 3.0)));
+    }
+  };
+
+  const handlePinchEnd = (e: React.TouchEvent) => {
+    if (e.touches.length < 2) {
+      initialDist.current = null;
+    }
+  };
+
+  return (
+    <div className="flex flex-col relative -m-3 sm:m-0 sm:w-auto overflow-hidden">
+      <div 
+        className="overflow-y-auto max-h-[50vh] md:max-h-none p-3 scrollbar-hide w-full relative touch-pan-y"
+        onTouchStart={handlePinchStart}
+        onTouchMove={handlePinchMove}
+        onTouchEnd={handlePinchEnd}
+      >
+         <div 
+           style={{ 
+             transform: window.innerWidth < 768 ? `scale(${scale})` : 'none', 
+             transformOrigin: 'top left',
+             width: window.innerWidth < 768 ? `${100 / scale}%` : '100%',
+           }} 
+           className="min-w-[240px]"
+         >
+           <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
+             <span className="text-[10px] font-black text-gray-500 bg-gray-100 px-2 py-1 rounded-md">ID: {facility.id}</span>
+             <span className="text-[10px] font-black px-2 py-1 rounded-md bg-red-50 text-red-600 border border-red-100">
+               미이행 현장
+             </span>
+           </div>
+           <h3 className="font-bold text-base mb-1 text-gray-900 leading-snug">{facility.name}</h3>
+           <p className="text-xs text-gray-500 mb-4">{facility.address}</p>
+           
+           <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <div className={`p-1.5 rounded-full ${facility.parking_unfulfilled ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-400'}`}>
+                   <Car size={14} />
+                </div>
+                <span className={`text-xs font-bold ${facility.parking_unfulfilled ? 'text-orange-700' : 'text-gray-400'}`}>
+                   주차면수: {facility.parking_unfulfilled ? '미이행' : '이행'} {facility.parking_unfulfilled && facility.req_parking && `(${facility.sum_parking}/${facility.req_parking})`}
+                </span>
+             </div>
+             <div className="flex items-center gap-2">
+                <div className={`p-1.5 rounded-full ${facility.charger_unfulfilled ? 'bg-yellow-100 text-yellow-600' : 'bg-gray-100 text-gray-400'}`}>
+                   <BatteryCharging size={14} />
+                </div>
+                <span className={`text-xs font-bold ${facility.charger_unfulfilled ? 'text-yellow-700' : 'text-gray-400'}`}>
+                   충전시설: {facility.charger_unfulfilled ? '미이행' : '이행'} {facility.charger_unfulfilled && facility.req_charger && `(${facility.sum_charger}/${facility.req_charger})`}
+                </span>
+             </div>
+           </div>
+           
+           <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-1.5 text-[11px] text-gray-600">
+             {facility.total_parking && (
+                <div className="flex justify-between">
+                  <span className="text-gray-400">총주차면수</span>
+                  <span className="font-semibold text-gray-700">{facility.total_parking}면</span>
+                </div>
+             )}
+             {facility.permit_date && (
+                <div className="flex justify-between">
+                  <span className="text-gray-400">건축허가일</span>
+                  <span className="font-semibold text-gray-700">{facility.permit_date}</span>
+                </div>
+             )}
+             {facility.is_public && (
+                <div className="flex justify-between">
+                  <span className="text-gray-400">공공시설</span>
+                  <span className="font-semibold text-gray-700">{facility.is_public}</span>
+                </div>
+             )}
+             {facility.contact && (
+                <div className="flex justify-between">
+                  <span className="text-gray-400">연락처</span>
+                  <span className="font-semibold text-gray-700">{facility.contact}</span>
+                </div>
+             )}
+           </div>
+           
+           {(facility.survey1_check || facility.survey1_plan || facility.survey1_note || facility.survey2_check || facility.survey2_plan || facility.survey2_note || facility.survey3_check || facility.survey3_plan || facility.survey3_note || facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
+             <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-2">
+               {(facility.survey1_check || facility.survey1_plan || facility.survey1_note) && (
+                  <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
+                    <div className="font-bold text-blue-700 text-[10px] mb-1">1차 조사</div>
+                    {facility.survey1_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey1_check}</div>}
+                    {facility.survey1_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey1_plan}</div>}
+                    {facility.survey1_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey1_note}</div>}
+                  </div>
+               )}
+               {(facility.survey2_check || facility.survey2_plan || facility.survey2_note) && (
+                  <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
+                    <div className="font-bold text-blue-700 text-[10px] mb-1">2차 조사</div>
+                    {facility.survey2_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey2_check}</div>}
+                    {facility.survey2_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey2_plan}</div>}
+                    {facility.survey2_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey2_note}</div>}
+                  </div>
+               )}
+               {(facility.survey3_check || facility.survey3_plan || facility.survey3_note) && (
+                  <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
+                    <div className="font-bold text-blue-700 text-[10px] mb-1">3차 조사</div>
+                    {facility.survey3_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey3_check}</div>}
+                    {facility.survey3_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey3_plan}</div>}
+                    {facility.survey3_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey3_note}</div>}
+                  </div>
+               )}
+               {(facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
+                  <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
+                    <div className="font-bold text-blue-700 text-[10px] mb-1">4차 조사</div>
+                    {facility.survey4_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey4_check}</div>}
+                    {facility.survey4_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey4_plan}</div>}
+                    {facility.survey4_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey4_note}</div>}
+                  </div>
+               )}
+             </div>
+           )}
+         </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [facilities] = useState<Facility[]>(initialData);
   const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isListMinimized, setIsListMinimized] = useState(() => window.innerWidth < 768);
   const [mapZoom, setMapZoom] = useState(13);
-  const [popupContentScale, setPopupContentScale] = useState(1);
   const markerRefs = useRef<{ [key: number]: L.Marker }>({});
 
   const initialCenter = GWANGSAN_OFFICE_CENTER;
@@ -199,118 +346,7 @@ function App() {
                     className="custom-popup" 
                     autoPan={true}
                   >
-                    <div className="flex flex-col relative -m-3 sm:m-0 sm:w-auto overflow-hidden">
-                      <div className="flex justify-between items-center bg-gray-100 p-2 border-b border-gray-200 sticky top-0 z-20 md:hidden rounded-t-lg">
-                        <span className="text-[11px] font-bold text-gray-600 ml-1">팝업 내용 확대/축소</span>
-                        <div className="flex gap-2 mr-6">
-                          <button onClick={(e) => { e.stopPropagation(); setPopupContentScale(p => Math.min(p + 0.15, 1.6)); }} className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 font-bold leading-none active:bg-gray-100 transition-colors text-lg">+</button>
-                          <button onClick={(e) => { e.stopPropagation(); setPopupContentScale(p => Math.max(p - 0.15, 0.7)); }} className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 font-bold leading-none active:bg-gray-100 transition-colors text-lg">-</button>
-                        </div>
-                      </div>
-                      
-                      <div className="overflow-y-auto max-h-[50vh] md:max-h-none p-3 scrollbar-hide w-full relative">
-                         <div 
-                           style={{ 
-                             transform: window.innerWidth < 768 ? `scale(${popupContentScale})` : 'none', 
-                             transformOrigin: 'top left',
-                             width: window.innerWidth < 768 ? `${100 / popupContentScale}%` : '100%',
-                           }} 
-                           className="min-w-[240px] transition-transform duration-200"
-                         >
-                           <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
-                        <span className="text-[10px] font-black text-gray-500 bg-gray-100 px-2 py-1 rounded-md">ID: {facility.id}</span>
-                        <span className="text-[10px] font-black px-2 py-1 rounded-md bg-red-50 text-red-600 border border-red-100">
-                          미이행 현장
-                        </span>
-                      </div>
-                      <h3 className="font-bold text-base mb-1 text-gray-900 leading-snug">{facility.name}</h3>
-                      <p className="text-xs text-gray-500 mb-4">{facility.address}</p>
-                      
-                      <div className="flex flex-col gap-2">
-                         <div className="flex items-center gap-2">
-                           <div className={`p-1.5 rounded-full ${facility.parking_unfulfilled ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-400'}`}>
-                              <Car size={14} />
-                           </div>
-                           <span className={`text-xs font-bold ${facility.parking_unfulfilled ? 'text-orange-700' : 'text-gray-400'}`}>
-                              주차면수: {facility.parking_unfulfilled ? '미이행' : '이행'} {facility.parking_unfulfilled && facility.req_parking && `(${facility.sum_parking}/${facility.req_parking})`}
-                           </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                           <div className={`p-1.5 rounded-full ${facility.charger_unfulfilled ? 'bg-yellow-100 text-yellow-600' : 'bg-gray-100 text-gray-400'}`}>
-                              <BatteryCharging size={14} />
-                           </div>
-                           <span className={`text-xs font-bold ${facility.charger_unfulfilled ? 'text-yellow-700' : 'text-gray-400'}`}>
-                              충전시설: {facility.charger_unfulfilled ? '미이행' : '이행'} {facility.charger_unfulfilled && facility.req_charger && `(${facility.sum_charger}/${facility.req_charger})`}
-                           </span>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-1.5 text-[11px] text-gray-600">
-                        {facility.total_parking && (
-                           <div className="flex justify-between">
-                             <span className="text-gray-400">총주차면수</span>
-                             <span className="font-semibold text-gray-700">{facility.total_parking}면</span>
-                           </div>
-                        )}
-                        {facility.permit_date && (
-                           <div className="flex justify-between">
-                             <span className="text-gray-400">건축허가일</span>
-                             <span className="font-semibold text-gray-700">{facility.permit_date}</span>
-                           </div>
-                        )}
-                        {facility.is_public && (
-                           <div className="flex justify-between">
-                             <span className="text-gray-400">공공시설</span>
-                             <span className="font-semibold text-gray-700">{facility.is_public}</span>
-                           </div>
-                        )}
-                        {facility.contact && (
-                           <div className="flex justify-between">
-                             <span className="text-gray-400">연락처</span>
-                             <span className="font-semibold text-gray-700">{facility.contact}</span>
-                           </div>
-                        )}
-                      </div>
-                      
-                      {(facility.survey1_check || facility.survey1_plan || facility.survey1_note || facility.survey2_check || facility.survey2_plan || facility.survey2_note || facility.survey3_check || facility.survey3_plan || facility.survey3_note || facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
-                        <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-2">
-                          {(facility.survey1_check || facility.survey1_plan || facility.survey1_note) && (
-                             <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
-                               <div className="font-bold text-blue-700 text-[10px] mb-1">1차 조사</div>
-                               {facility.survey1_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey1_check}</div>}
-                               {facility.survey1_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey1_plan}</div>}
-                               {facility.survey1_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey1_note}</div>}
-                             </div>
-                          )}
-                          {(facility.survey2_check || facility.survey2_plan || facility.survey2_note) && (
-                             <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
-                               <div className="font-bold text-blue-700 text-[10px] mb-1">2차 조사</div>
-                               {facility.survey2_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey2_check}</div>}
-                               {facility.survey2_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey2_plan}</div>}
-                               {facility.survey2_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey2_note}</div>}
-                             </div>
-                          )}
-                          {(facility.survey3_check || facility.survey3_plan || facility.survey3_note) && (
-                             <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
-                               <div className="font-bold text-blue-700 text-[10px] mb-1">3차 조사</div>
-                               {facility.survey3_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey3_check}</div>}
-                               {facility.survey3_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey3_plan}</div>}
-                               {facility.survey3_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey3_note}</div>}
-                             </div>
-                          )}
-                          {(facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
-                             <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
-                               <div className="font-bold text-blue-700 text-[10px] mb-1">4차 조사</div>
-                               {facility.survey4_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey4_check}</div>}
-                               {facility.survey4_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey4_plan}</div>}
-                               {facility.survey4_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey4_note}</div>}
-                             </div>
-                          )}
-                        </div>
-                      )}
-                         </div>
-                      </div>
-                    </div>
+                    <ZoomablePopupContent facility={facility} />
                   </Popup>
                 </Marker>
               );
