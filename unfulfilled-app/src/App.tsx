@@ -43,15 +43,19 @@ const initialData = unfulfilledData as Facility[];
 const GWANGSAN_OFFICE_CENTER: [number, number] = [35.139647, 126.793644]; // 광산구청 좌표
 
 // Custom Icons
-const createCustomIcon = (category: string) => {
+const createCustomIcon = (category: string, zoom: number) => {
   let color = '#ef4444'; // default red
   if (category === '공공시설(학교제외)') color = '#f97316'; // orange
   else if (category === '공중이용시설(학교포함)') color = '#eab308'; // yellow
   else if (category === '공동주택') color = '#3b82f6'; // blue
   else if (category === '공공시설(광산구)') color = '#22c55e'; // green
 
+  const scale = Math.max(0.5, Math.min(2.5, 1 + (zoom - 13) * 0.2));
+  const width = 40 * scale;
+  const height = 50 * scale;
+
   const svgPin = `
-    <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));">
+    <svg width="${width}" height="${height}" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));">
       <path d="M20 0C8.95431 0 0 8.95431 0 20C0 31.0457 20 50 20 50C20 50 40 31.0457 40 20C40 8.95431 31.0457 0 20 0Z" fill="${color}" fill-opacity="1"/>
       <circle cx="20" cy="20" r="8" fill="white" fill-opacity="1"/>
     </svg>
@@ -59,20 +63,20 @@ const createCustomIcon = (category: string) => {
 
   return L.divIcon({
     html: `
-      <div style="position: relative; display: flex; flex-direction: column; align-items: center; width: 40px;">
-        <div style="width: 40px; height: 50px;">
+      <div style="position: relative; display: flex; flex-direction: column; align-items: center; width: ${width}px;">
+        <div style="width: ${width}px; height: ${height}px;">
           ${svgPin}
         </div>
       </div>
     `,
     className: 'custom-survey-marker',
-    iconSize: [40, 50],
-    iconAnchor: [20, 50],
-    popupAnchor: [0, -45],
+    iconSize: [width, height],
+    iconAnchor: [width / 2, height],
+    popupAnchor: [0, -height + 5],
   });
 };
 
-function MapController({ facility, markerRefs }: { facility: Facility | null, markerRefs: React.MutableRefObject<{ [key: number]: L.Marker }> }) {
+function MapController({ facility, markerRefs, setMapZoom }: { facility: Facility | null, markerRefs: React.MutableRefObject<{ [key: number]: L.Marker }>, setMapZoom: (zoom: number) => void }) {
   const map = useMap();
   
   // Fix for gray map issue
@@ -83,6 +87,13 @@ function MapController({ facility, markerRefs }: { facility: Facility | null, ma
     }, 250);
     return () => clearTimeout(timer);
   }, [map]);
+
+  // Track map zoom
+  useEffect(() => {
+    const onZoomEnd = () => setMapZoom(map.getZoom());
+    map.on('zoomend', onZoomEnd);
+    return () => { map.off('zoomend', onZoomEnd); };
+  }, [map, setMapZoom]);
 
   // Center map and open popup when facility changes
   useEffect(() => {
@@ -106,6 +117,8 @@ function App() {
   const [selectedFacility, setSelectedFacility] = useState<Facility | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isListMinimized, setIsListMinimized] = useState(() => window.innerWidth < 768);
+  const [mapZoom, setMapZoom] = useState(13);
+  const [popupContentScale, setPopupContentScale] = useState(1);
   const markerRefs = useRef<{ [key: number]: L.Marker }>({});
 
   const initialCenter = GWANGSAN_OFFICE_CENTER;
@@ -152,7 +165,7 @@ function App() {
         <main className="flex-1 relative z-0 min-h-0">
           <div className="absolute inset-0">
             <MapContainer center={initialCenter} zoom={13} scrollWheelZoom={true} style={{ height: "100%", width: "100%" }}>
-              <MapController facility={selectedFacility} markerRefs={markerRefs} />
+              <MapController facility={selectedFacility} markerRefs={markerRefs} setMapZoom={setMapZoom} />
             
             <TileLayer
               attribution='&copy; <a href="https://vworld.kr/">VWorld</a>'
@@ -166,7 +179,7 @@ function App() {
                 <Marker 
                   key={facility.id} 
                   position={[Number(facility.lat), Number(facility.lng)]} 
-                  icon={createCustomIcon(facility.category)}
+                  icon={createCustomIcon(facility.category, mapZoom)}
                   ref={(ref) => {
                     if (ref) markerRefs.current[facility.id] = ref;
                   }}
@@ -186,8 +199,25 @@ function App() {
                     className="custom-popup" 
                     autoPan={true}
                   >
-                    <div className="p-3 min-w-[240px]">
-                      <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
+                    <div className="flex flex-col relative -m-3 sm:m-0 sm:w-auto overflow-hidden">
+                      <div className="flex justify-between items-center bg-gray-100 p-2 border-b border-gray-200 sticky top-0 z-20 md:hidden rounded-t-lg">
+                        <span className="text-[11px] font-bold text-gray-600 ml-1">팝업 내용 확대/축소</span>
+                        <div className="flex gap-2 mr-6">
+                          <button onClick={(e) => { e.stopPropagation(); setPopupContentScale(p => Math.min(p + 0.15, 1.6)); }} className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 font-bold leading-none active:bg-gray-100 transition-colors text-lg">+</button>
+                          <button onClick={(e) => { e.stopPropagation(); setPopupContentScale(p => Math.max(p - 0.15, 0.7)); }} className="w-8 h-8 flex items-center justify-center bg-white border border-gray-300 rounded-md shadow-sm text-gray-700 font-bold leading-none active:bg-gray-100 transition-colors text-lg">-</button>
+                        </div>
+                      </div>
+                      
+                      <div className="overflow-y-auto max-h-[50vh] md:max-h-none p-3 scrollbar-hide w-full relative">
+                         <div 
+                           style={{ 
+                             transform: window.innerWidth < 768 ? `scale(${popupContentScale})` : 'none', 
+                             transformOrigin: 'top left',
+                             width: window.innerWidth < 768 ? `${100 / popupContentScale}%` : '100%',
+                           }} 
+                           className="min-w-[240px] transition-transform duration-200"
+                         >
+                           <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
                         <span className="text-[10px] font-black text-gray-500 bg-gray-100 px-2 py-1 rounded-md">ID: {facility.id}</span>
                         <span className="text-[10px] font-black px-2 py-1 rounded-md bg-red-50 text-red-600 border border-red-100">
                           미이행 현장
@@ -278,6 +308,8 @@ function App() {
                           )}
                         </div>
                       )}
+                         </div>
+                      </div>
                     </div>
                   </Popup>
                 </Marker>
