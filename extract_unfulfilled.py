@@ -88,17 +88,25 @@ def main():
         elif contact_an:
             contact = contact_an
             
-        # Survey 1 (AR, AS)
-        survey1_check = str(row.iloc[43]).strip() if pd.notna(row.iloc[43]) and str(row.iloc[43]) != 'nan' else ""
-        survey1_plan = str(row.iloc[44]).strip() if pd.notna(row.iloc[44]) and str(row.iloc[44]) != 'nan' else ""
+        # Survey 1 (AP, AQ, AR)
+        survey1_check = str(row.iloc[41]).strip() if pd.notna(row.iloc[41]) and str(row.iloc[41]) != 'nan' else ""
+        survey1_plan = str(row.iloc[42]).strip() if pd.notna(row.iloc[42]) and str(row.iloc[42]) != 'nan' else ""
+        survey1_note = str(row.iloc[43]).strip() if pd.notna(row.iloc[43]) and str(row.iloc[43]) != 'nan' else ""
 
-        # Survey 2 (AX, AY)
-        survey2_check = str(row.iloc[49]).strip() if pd.notna(row.iloc[49]) and str(row.iloc[49]) != 'nan' else ""
-        survey2_plan = str(row.iloc[50]).strip() if pd.notna(row.iloc[50]) and str(row.iloc[50]) != 'nan' else ""
+        # Survey 2 (AV, AW, AX)
+        survey2_check = str(row.iloc[47]).strip() if pd.notna(row.iloc[47]) and str(row.iloc[47]) != 'nan' else ""
+        survey2_plan = str(row.iloc[48]).strip() if pd.notna(row.iloc[48]) and str(row.iloc[48]) != 'nan' else ""
+        survey2_note = str(row.iloc[49]).strip() if pd.notna(row.iloc[49]) and str(row.iloc[49]) != 'nan' else ""
 
-        # Survey 3 (BD, BE)
-        survey3_check = str(row.iloc[55]).strip() if pd.notna(row.iloc[55]) and str(row.iloc[55]) != 'nan' else ""
-        survey3_plan = str(row.iloc[56]).strip() if pd.notna(row.iloc[56]) and str(row.iloc[56]) != 'nan' else ""
+        # Survey 3 (BB, BC, BD)
+        survey3_check = str(row.iloc[53]).strip() if pd.notna(row.iloc[53]) and str(row.iloc[53]) != 'nan' else ""
+        survey3_plan = str(row.iloc[54]).strip() if pd.notna(row.iloc[54]) and str(row.iloc[54]) != 'nan' else ""
+        survey3_note = str(row.iloc[55]).strip() if pd.notna(row.iloc[55]) and str(row.iloc[55]) != 'nan' else ""
+        
+        # Survey 4 (BH, BI, BJ)
+        survey4_check = str(row.iloc[59]).strip() if pd.notna(row.iloc[59]) and str(row.iloc[59]) != 'nan' else ""
+        survey4_plan = str(row.iloc[60]).strip() if pd.notna(row.iloc[60]) and str(row.iloc[60]) != 'nan' else ""
+        survey4_note = str(row.iloc[61]).strip() if pd.notna(row.iloc[61]) and str(row.iloc[61]) != 'nan' else ""
 
         lat, lng = None, None
         
@@ -161,10 +169,16 @@ def main():
             "contact": contact,
             "survey1_check": survey1_check,
             "survey1_plan": survey1_plan,
+            "survey1_note": survey1_note,
             "survey2_check": survey2_check,
             "survey2_plan": survey2_plan,
+            "survey2_note": survey2_note,
             "survey3_check": survey3_check,
             "survey3_plan": survey3_plan,
+            "survey3_note": survey3_note,
+            "survey4_check": survey4_check,
+            "survey4_plan": survey4_plan,
+            "survey4_note": survey4_note,
             "lat": lat,
             "lng": lng
         }

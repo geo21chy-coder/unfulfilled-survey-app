@@ -24,10 +24,16 @@ interface Facility {
   contact?: string;
   survey1_check?: string;
   survey1_plan?: string;
+  survey1_note?: string;
   survey2_check?: string;
   survey2_plan?: string;
+  survey2_note?: string;
   survey3_check?: string;
   survey3_plan?: string;
+  survey3_note?: string;
+  survey4_check?: string;
+  survey4_plan?: string;
+  survey4_note?: string;
   lat: number | null;
   lng: number | null;
 }
@@ -236,27 +242,38 @@ function App() {
                         )}
                       </div>
                       
-                      {(facility.survey1_check || facility.survey1_plan || facility.survey2_check || facility.survey2_plan || facility.survey3_check || facility.survey3_plan) && (
+                      {(facility.survey1_check || facility.survey1_plan || facility.survey1_note || facility.survey2_check || facility.survey2_plan || facility.survey2_note || facility.survey3_check || facility.survey3_plan || facility.survey3_note || facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
                         <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col gap-2">
-                          {(facility.survey1_check || facility.survey1_plan) && (
+                          {(facility.survey1_check || facility.survey1_plan || facility.survey1_note) && (
                              <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
                                <div className="font-bold text-blue-700 text-[10px] mb-1">1차 조사</div>
                                {facility.survey1_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey1_check}</div>}
-                               {facility.survey1_plan && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey1_plan}</div>}
+                               {facility.survey1_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey1_plan}</div>}
+                               {facility.survey1_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey1_note}</div>}
                              </div>
                           )}
-                          {(facility.survey2_check || facility.survey2_plan) && (
+                          {(facility.survey2_check || facility.survey2_plan || facility.survey2_note) && (
                              <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
                                <div className="font-bold text-blue-700 text-[10px] mb-1">2차 조사</div>
                                {facility.survey2_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey2_check}</div>}
-                               {facility.survey2_plan && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey2_plan}</div>}
+                               {facility.survey2_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey2_plan}</div>}
+                               {facility.survey2_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey2_note}</div>}
                              </div>
                           )}
-                          {(facility.survey3_check || facility.survey3_plan) && (
+                          {(facility.survey3_check || facility.survey3_plan || facility.survey3_note) && (
                              <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
                                <div className="font-bold text-blue-700 text-[10px] mb-1">3차 조사</div>
                                {facility.survey3_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey3_check}</div>}
-                               {facility.survey3_plan && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey3_plan}</div>}
+                               {facility.survey3_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey3_plan}</div>}
+                               {facility.survey3_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey3_note}</div>}
+                             </div>
+                          )}
+                          {(facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
+                             <div className="bg-blue-50/50 p-2.5 rounded-lg border border-blue-100/50">
+                               <div className="font-bold text-blue-700 text-[10px] mb-1">4차 조사</div>
+                               {facility.survey4_check && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">확인사항:</span>{facility.survey4_check}</div>}
+                               {facility.survey4_plan && <div className="text-[11px] text-gray-700 mb-0.5"><span className="text-gray-400 font-medium mr-1">이행계획:</span>{facility.survey4_plan}</div>}
+                               {facility.survey4_note && <div className="text-[11px] text-gray-700"><span className="text-gray-400 font-medium mr-1">비고:</span>{facility.survey4_note}</div>}
                              </div>
                           )}
                         </div>
@@ -335,34 +352,45 @@ function App() {
                     )}
                   </div>
 
-                  {((facility.survey1_check || facility.survey1_plan || facility.survey2_check || facility.survey2_plan || facility.survey3_check || facility.survey3_plan) && isSelected) && (
+                  {((facility.survey1_check || facility.survey1_plan || facility.survey1_note || facility.survey2_check || facility.survey2_plan || facility.survey2_note || facility.survey3_check || facility.survey3_plan || facility.survey3_note || facility.survey4_check || facility.survey4_plan || facility.survey4_note) && isSelected) && (
                     <div className="mt-3 pt-3 border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-300">
                       <div className="bg-blue-50 text-blue-900 text-xs p-3 rounded-lg border border-blue-100 flex flex-col gap-2">
-                          {(facility.survey1_check || facility.survey1_plan) && (
+                          {(facility.survey1_check || facility.survey1_plan || facility.survey1_note) && (
                              <div>
                                <div className="font-bold text-[10px] mb-0.5 opacity-70">1차 조사</div>
                                {facility.survey1_check && <div className="mb-0.5">▪ 확인: {facility.survey1_check}</div>}
-                               {facility.survey1_plan && <div>▪ 계획: {facility.survey1_plan}</div>}
+                               {facility.survey1_plan && <div className="mb-0.5">▪ 계획: {facility.survey1_plan}</div>}
+                               {facility.survey1_note && <div>▪ 비고: {facility.survey1_note}</div>}
                              </div>
                           )}
-                          {(facility.survey2_check || facility.survey2_plan) && (
+                          {(facility.survey2_check || facility.survey2_plan || facility.survey2_note) && (
                              <div className="pt-2 border-t border-blue-200/50">
                                <div className="font-bold text-[10px] mb-0.5 opacity-70">2차 조사</div>
                                {facility.survey2_check && <div className="mb-0.5">▪ 확인: {facility.survey2_check}</div>}
-                               {facility.survey2_plan && <div>▪ 계획: {facility.survey2_plan}</div>}
+                               {facility.survey2_plan && <div className="mb-0.5">▪ 계획: {facility.survey2_plan}</div>}
+                               {facility.survey2_note && <div>▪ 비고: {facility.survey2_note}</div>}
                              </div>
                           )}
-                          {(facility.survey3_check || facility.survey3_plan) && (
+                          {(facility.survey3_check || facility.survey3_plan || facility.survey3_note) && (
                              <div className="pt-2 border-t border-blue-200/50">
                                <div className="font-bold text-[10px] mb-0.5 opacity-70">3차 조사</div>
                                {facility.survey3_check && <div className="mb-0.5">▪ 확인: {facility.survey3_check}</div>}
-                               {facility.survey3_plan && <div>▪ 계획: {facility.survey3_plan}</div>}
+                               {facility.survey3_plan && <div className="mb-0.5">▪ 계획: {facility.survey3_plan}</div>}
+                               {facility.survey3_note && <div>▪ 비고: {facility.survey3_note}</div>}
+                             </div>
+                          )}
+                          {(facility.survey4_check || facility.survey4_plan || facility.survey4_note) && (
+                             <div className="pt-2 border-t border-blue-200/50">
+                               <div className="font-bold text-[10px] mb-0.5 opacity-70">4차 조사</div>
+                               {facility.survey4_check && <div className="mb-0.5">▪ 확인: {facility.survey4_check}</div>}
+                               {facility.survey4_plan && <div className="mb-0.5">▪ 계획: {facility.survey4_plan}</div>}
+                               {facility.survey4_note && <div>▪ 비고: {facility.survey4_note}</div>}
                              </div>
                           )}
                       </div>
                     </div>
                   )}
-                  {((facility.survey1_check || facility.survey1_plan || facility.survey2_check || facility.survey2_plan || facility.survey3_check || facility.survey3_plan) && !isSelected) && (
+                  {((facility.survey1_check || facility.survey1_plan || facility.survey1_note || facility.survey2_check || facility.survey2_plan || facility.survey2_note || facility.survey3_check || facility.survey3_plan || facility.survey3_note || facility.survey4_check || facility.survey4_plan || facility.survey4_note) && !isSelected) && (
                      <div className="mt-2 text-[11px] text-gray-400 flex items-center gap-1.5 font-medium">
                         <MessageSquare size={12} /> 상세보기 (클릭하여 확인)
                      </div>
