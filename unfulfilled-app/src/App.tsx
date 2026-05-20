@@ -148,18 +148,16 @@ function ZoomablePopupContent({ facility }: { facility: Facility }) {
   };
 
   return (
-    <div className="flex flex-col relative -m-3 sm:m-0 sm:w-auto overflow-hidden">
+    <div className="flex flex-col relative -m-3 sm:m-0 sm:w-auto overflow-hidden bg-white rounded-lg">
       <div 
-        className="overflow-y-auto max-h-[50vh] md:max-h-none p-3 scrollbar-hide w-full relative touch-pan-y"
+        className="overflow-auto max-h-[50vh] md:max-h-none p-3 scrollbar-hide w-full relative touch-auto"
         onTouchStart={handlePinchStart}
         onTouchMove={handlePinchMove}
         onTouchEnd={handlePinchEnd}
       >
          <div 
            style={{ 
-             transform: window.innerWidth < 768 ? `scale(${scale})` : 'none', 
-             transformOrigin: 'top left',
-             width: window.innerWidth < 768 ? `${100 / scale}%` : '100%',
+             zoom: window.innerWidth < 768 ? scale : 1, 
            }} 
            className="min-w-[240px]"
          >
