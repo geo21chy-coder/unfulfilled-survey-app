@@ -2641,7 +2641,7 @@
     "address": "광주 광산구 연산동 1111",
     "remarks": "장혜란",
     "parking_unfulfilled": true,
-    "charger_unfulfilled": false,
+    "charger_unfulfilled": true,
     "req_parking": "5",
     "sum_parking": "2",
     "req_charger": "2",
